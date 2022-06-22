@@ -1,8 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import globalStyles from '../styles/global'
+import varsStyle from '../styles/vars'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+type Props = {
+    Component: any,
+    pageProps: any
 }
 
-export default MyApp
+function App({ Component, pageProps }: Props) {
+    return (
+        <>
+            <Component {...pageProps} />
+            <style jsx global>{varsStyle}</style>
+            <style jsx global>{globalStyles}</style>
+        </>
+    )
+}
+
+export default App
